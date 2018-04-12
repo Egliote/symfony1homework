@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Studentai{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <tbody>
+        <tr>
+            <td><div class="h1">Studentai</div></td>
+        </tr>
+        {% for student_name in students %}
+        <tr>
+            <td><a href="{{ path('student_info', {'student': student_name}) }}">{{ student_name }}</a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
+{% block navigation %}
+    <a class="nav-link active" href="{{ path('home') }}">Pagrindinis puslapis</a>
+{% endblock %}
