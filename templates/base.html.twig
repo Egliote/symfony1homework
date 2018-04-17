@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}{{ "My project" }}{% endblock %}</title>
+        <title>{% block title %}1 Symfony namų darbas{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
         {% endblock %}
@@ -12,6 +12,9 @@
     </head>
     <body>
         {% block body %}{% endblock %}
+        {% block navigation %}
+            <a href="{{ path('student-list') }}">Studentų puslapis</a>
+        {% endblock %}
         {% block javascripts %}
             <script src="{{ asset('build/js/app.js') }}"></script>
         {% endblock %}
