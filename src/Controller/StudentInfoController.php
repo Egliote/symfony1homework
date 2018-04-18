@@ -13,22 +13,12 @@ class StudentInfoController extends Controller
     /**
      * @Route("/student/info", name="student_info")
      */
-    public function index()
+    public function index(Request $request)
     {
         $data = file_get_contents($this->data_file);
         $teams = json_decode($data);
-        $request = Request::createFromGlobals();
         $request->getPathInfo();
         $studentName = $request->query->get('utm_term');
-
-        if ($studentName == "Eglė") {
-            $message = "Dešimt balų";
-            $format = "table-success";
-        } else {
-            $message = "Gal pasiseks kitą kartą";
-            $format = "table-warning";
-        }
-
         $foundTeam = null;
         $foundTeamName = null;
         foreach ($teams as $teamName => $team) {
@@ -45,9 +35,7 @@ class StudentInfoController extends Controller
             return $this->render('student_info/index.html.twig', [
                 'team' => $foundTeamName,
                 'mentor' => $foundTeam->mentor,
-                'student' => $studentName,
-                'message' => $message,
-                'format' => $format
+                'student' => $studentName
             ]);
         } else {
             $errorMessage = "Student not found";

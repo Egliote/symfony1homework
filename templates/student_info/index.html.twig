@@ -15,11 +15,18 @@
             <th scope="row">Laimingasis (-oji)</th>
             <td>{{ student }}</td>
         </tr>
-        <tr class={{ format }}>
-            <td>{{ message }}</td>
-            <td></td>
-        </tr>
+        {% if student == 'Eglė' %}
+            <tr class="table-success">
+                <td>Dešimt balų</td>
+                <td></td>
+            </tr>
+        {% else %}
+            <tr class="table-warning">
+                <td>Gal pasiseks kitą kartą</td>
+                <td></td>
+            </tr>
 
+        {% endif %}
         </tbody>
     </table>
 {% endblock %}

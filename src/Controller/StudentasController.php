@@ -16,20 +16,16 @@ class StudentasController extends Controller
     {
         $data = file_get_contents($this->data_file);
         $teams = json_decode($data);
-        $students = array();
         $paths = array();
         $p = array();
         foreach ($teams as $teamName => $team) {
-//            $students= array_merge ($students, $team->members);
             foreach ($team->members as $member) {
                 $p = array('utm_source' => 'akademija', 'utm_campaign' => $team->mentor, 'utm_term' => $member, 'utm_content' => $teamName);
                 array_push($paths, $p);
             }
         }
-//        asort($students);
 
         return $this->render('student-list/index.html.twig', [
-//            'students' => $students,
             'paths' => $paths
         ]);
     }
