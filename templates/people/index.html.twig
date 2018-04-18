@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sveiki, čia galite ieškoti studentų ir komandų!{% endblock %}
+
+{% block body %}
+    {#<div id="root">Loading...</div>
+    <div>
+        Versija <b id="version">...</b>
+    </div>#}
+    <div class="h4">Įveskite studento vardą:</div>
+    <input type="text" id="name"/><span id="validation-result1"
+                                        data-path="{{ path('validateInput', {'element': 'name'}) }}"></span>
+    <div class="h4">Įveskite komandos pavadinimą:</div>
+    <input type="text" id="team"/><span id="validation-result2"
+                                        data-path="{{ path('validateInput', {'element': 'team'}) }}"></span>
+{% endblock %}
+{% block navigation %}
+    <nav class="navbar navbar-primary">
+        <ul class="nav navbar-nav">
+            <li><a href="{{ path('student-list') }}">Studentų puslapis</a></li>
+            <li><a href="{{ path('home') }}">Pagrindinis puslapis</a></li>
+        </ul>
+    </nav>
+
+{% endblock %}
+{% block javascripts %}
+    {#<script>
+        var needVersion = true;
+        var needReact = true;
+    </script>#}
+    <script src="{{ asset('build/js/validation.js') }}"></script>
+    {{ parent() }}
+{% endblock %}
