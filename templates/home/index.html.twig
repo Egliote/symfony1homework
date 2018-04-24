@@ -5,5 +5,14 @@
 {% block body %}
     <div class="title">NFQ Akademija</div>
     <div class="h1">Iš kur ateina studentai?</div>
-
+    <div class="jumbotron">
+        <a class="btn btn-secondary btn-lg" href="{{ path('fos_user_security_login') }}">Login</a>
+        <a class="btn btn-secondary btn-lg" href="{{ path('fos_user_registration_register') }}">Register</a>
+        <a class="btn btn-secondary btn-lg" href="{{ path('fos_user_profile_show') }}">User profile</a>
+        <a class="btn btn-secondary btn-lg" href="{{ path('fos_user_profile_edit') }}">Edit user profile</a>
+        <a class="btn btn-secondary btn-lg" href="{{ path('fos_user_change_password') }}">Change password</a>
+    </div>
+    <div class="jumbotron">
+        <a class="btn btn-info btn-lg" href="{{ path('admin') }}">Admin</a>
+    </div>
 {% endblock %}
