@@ -6,30 +6,30 @@
 
     <div class="m4 jumbotron">
         <div class="lead">
-            Hello, {{ app.user.username }}
+            Labas, {{ app.user.username }}
             {% if 'ROLE_ADMIN' in app.user.roles %}
-                <a class="btn btn-primary" href="profile/edit">Edit</a>
+                <a class="btn btn-primary" href="profile/edit">Redaguoti</a>
             {% endif %}
             {% if 'ROLE_MENTORIUS' in app.user.roles %}
-                <a class="btn btn-info" href="profile/">View</a>
+                <a class="btn btn-info" href="profile/">Peržiūrėti</a>
             {% endif %}
         </div>
         {% if app.user.website %}
             <div class="p2">
                 <a href="{{ app.user.website }}">{{ app.user.website }}</a>
-                <span class="badge badge-secondary">WebSite</span>
+                <span class="badge badge-secondary">Svetainė</span>
             </div>
         {% endif %}
         {% if app.user.linkedin %}
             <div class="p2">
                 <a href="{{ app.user.linkedin }}">{{ app.user.linkedin }}</a>
-                <span class="badge badge-secondary">LinkedIn</span>
+                <span class="badge badge-secondary">„LinkedIn“</span>
             </div>
         {% endif %}
     </div>
 
 
     <div class="jumbotron">
-        <a class="btn btn-info btn-lg" href="{{ path('home') }}">My home</a>
+        <a class="btn btn-info btn-lg" href="{{ path('home') }}">Pagrindinis puslpis</a>
     </div>
 {% endblock %}
